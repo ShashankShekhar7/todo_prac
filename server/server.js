@@ -15,7 +15,7 @@ const app = express();
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
     ? [
-        'https://todo-prac-murex.vercel.app/',  // We'll get this from Vercel
+        'https://todo-prac-murex.vercel.app',  // We'll get this from Vercel
         'https://your-custom-domain.com'          // If you have a custom domain
       ]
     : ['http://localhost:3000'],
