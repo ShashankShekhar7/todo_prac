@@ -12,10 +12,16 @@ connectDB();
 const app = express();
 
 // CORS configuration
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
-}));
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' 
+    ? [
+        'https://todo-prac-murex.vercel.app/',  // We'll get this from Vercel
+        'https://your-custom-domain.com'          // If you have a custom domain
+      ]
+    : ['http://localhost:3000'],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
 
 // Body parser middleware
 app.use(express.json());
